@@ -9,13 +9,20 @@ public class Main {
     static void task2(double temp) {
 
         String messageTask2 = "На улице ";
-        String isCold = ", нужно надеть шапку";
-        String isWarm = ", можно идти без шапки";
-        System.out.println(messageTask2 + temp + (temp < 5 ? isCold : isWarm));
+        String ifCold = ", нужно надеть шапку";
+        String ifWarm = ", можно идти без шапки";
+        //System.out.println(messageTask2 + temp + (temp < 5 ? ifCold : ifWarm));
+        if (temp < 5) {
+            System.out.println(messageTask2 + ifCold);
+        } else {
+            System.out.println(messageTask2 + ifWarm);
+        }
     }
 
     static void task3(int speed) {
-        if (speed < 0) System.out.println("Введите реальную скорость!");
+        if (speed < 0) {
+            System.out.println("Введите реальную скорость!");
+        }
         System.out.print("Если скорость " + speed);
         if (speed > 60) {
             System.out.println(", то придется заплатить штраф");
@@ -25,17 +32,17 @@ public class Main {
     }
 
     static void task4(int age) {
-        String institution = "";
-        String messageTask4 = "";
+        String institution;
+        String messageTask4;
         if (age < 2) {
             messageTask4 = age < 0 ? "Возраст не может быть отрицательным" : "Ребенок должен спать дом в кроватке";
         } else {
-            if (age < 25) {
+            if (age <= 24) {
                 institution = "в университет";
             } else {
                 institution = "на работу";
             }
-            if (age < 17) {
+            if (age < 18) {
                 institution = "в школу";
             }
             if (age < 7) {
@@ -48,12 +55,16 @@ public class Main {
 
     static void task5(int age) {
         String messageTask5 = "Если возраст ребенка равен " + age + ", то ему";
-        String solution = "";
+        String solution;
         if (age < 14) {
             solution = " можно кататься на аттракционе в сопровождении взрослого";
-            if (age < 5) //Здесь одна операция
+            if (age < 5) {
                 solution = " нельзя кататься на аттракционах";
-        } else solution = " можно кататься на аттракционах без сопровождения взрослого"; //Здесь тоже
+            }
+        } else {
+            solution = " можно кататься на аттракционах без сопровождения взрослого";
+        }
+
         System.out.println(messageTask5 + solution);
     }
 
