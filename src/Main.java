@@ -13,9 +13,9 @@ public class Main {
         String ifWarm = ", можно идти без шапки";
         //System.out.println(messageTask2 + temp + (temp < 5 ? ifCold : ifWarm));
         if (temp < 5) {
-            System.out.println(messageTask2 + ifCold);
+            System.out.println(messageTask2 + temp + ifCold);
         } else {
-            System.out.println(messageTask2 + ifWarm);
+            System.out.println(messageTask2 + temp + ifWarm);
         }
     }
 
@@ -32,24 +32,30 @@ public class Main {
     }
 
     static void task4(int age) {
-        String institution;
+        String institution = "";
         String messageTask4;
-        if (age < 2) {
-            messageTask4 = age < 0 ? "Возраст не может быть отрицательным" : "Ребенок должен спать дом в кроватке";
-        } else {
-            if (age <= 24) {
-                institution = "в университет";
+        if (age > 0) {
+            if (age < 2) {
+                messageTask4 = "Ребенок должен спать в кроватке";
             } else {
-                institution = "на работу";
+                if (age < 7) {
+                    institution = "в детский сад";
+                }
+                if (age < 18 && age >= 7) {
+                    institution = "в школу";
+                }
+                if (age < 25 && age >= 18) {
+                    institution = "в университет";
+                }
+                if (age >= 25) {
+                    institution = "на работу";
+                }
+                messageTask4 = "Если возраст человека равен " + age + ", то ему нужно ходить " + institution;
             }
-            if (age < 18) {
-                institution = "в школу";
-            }
-            if (age < 7) {
-                institution = "в детский сад";
-            }
-            messageTask4 = "Если возраст человека равен " + age + ", то ему нужно ходить " + institution;
+        } else {
+            messageTask4 = "Возраст не может быть отрицательным";
         }
+
         System.out.println(messageTask4);
     }
 
